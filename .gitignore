@@ -23,3 +23,23 @@
 /public/assets/
 /assets/vendor/
 ###< symfony/asset-mapper ###
+
+
+assets/
+config/
+bin/
+tests/
+translation/
+var/
+vendor/
+.env
+.env.test
+.env.dev
+compose.override.yaml
+docker-compose.yml
+compsoer.json
+composer.lock
+Dockerfile
+importmap.php
+phpunit.xml.dist
+symfony.lock

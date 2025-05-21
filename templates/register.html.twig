@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #eef1f5; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .form-box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 350px; }
+        input, button { width: 100%; margin: 10px 0; padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        button { background-color: #2196F3; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0b7dda; }
+        ul { padding-left: 20px; }
+        li { color: red; }
+    </style>
+</head>
+<body>
+    <div class="form-box">
+        <h1>Регистрация</h1>
+        {% if errors %}
+            <ul>
+                {% for error in errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form method="post">
+            <input type="text" name="username" placeholder="Имя" value="{{ old.username|default('') }}">
+            <input type="email" name="email" placeholder="Email" value="{{ old.email|default('') }}">
+            <input type="password" name="password" placeholder="Пароль">
+            <input type="text" name="phone" placeholder="Телефон" value="{{ old.phone|default('') }}">
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+        <a href="/">Вернуться</a>
+    </div>
+</body>
+</html>

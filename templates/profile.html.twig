@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f0f0f0; text-align: center; padding-top: 100px; }
+        .profile-box { background: white; margin: auto; padding: 40px; width: 400px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        a { display: inline-block; margin-top: 20px; color: white; background-color: #f44336; padding: 10px 20px; border-radius: 5px; text-decoration: none; }
+        a:hover { background-color: #d32f2f; }
+    </style>
+</head>
+<body>
+    <div class="profile-box">
+        <h1>Личный кабинет</h1>
+        <p>Добро пожаловать, <strong>{{ user.username }}</strong>!</p>
+        <p>Роль: {{ user.role }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Телефон: {{ user.phone }}</p>
+
+        {% if user.role == 'Admin' %}
+        <form action="/download-report/pdf" method="GET">
+            <input type="submit" value="Скачать отчет PDF">
+        </form>
+        <form action="/download-report/excel" method="GET">
+            <input type="submit" value="Скачать отчет Excel">
+        </form>
+        <form action="/download-report/csv" method="GET">
+            <input type="submit" value="Скачать отчет CSV">
+        </form>
+        {% endif %}
+        
+        <a href="/">Вернуться</a>
+        <a href="/logout">Выйти</a>
+    </div>
+</body>
+</html>
